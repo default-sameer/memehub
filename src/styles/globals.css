@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: #1b1b1b;
+}
+
+
+@layer base{
+body{
+    @apply !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-orange-400;
+}
+}
+
