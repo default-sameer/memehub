@@ -16,8 +16,8 @@ export default function Document() {
             <meta name="theme-color" content="#ffa31a" />
             {/* Favicons */}
             {/* OpenGraph MetaData*/}
-            <meta property="og:image:height" content="460" />
-            <meta property="og:image:width" content="879" />
+            <meta property="og:image:height" content="401" />
+            <meta property="og:image:width" content="767" />
             <meta property="og:title" content="MemeHub" />
             <meta property="og:description" content="One Stop For All of Your Meme Needs" />
             <meta property="og:url" content="https://memehub.vercel.app/" />

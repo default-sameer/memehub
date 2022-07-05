@@ -31,7 +31,7 @@ const Meme = ({meme}: {meme:MemeResponse}) => {
                                 <Image src={`${meme.author.image}`} alt={`${meme.author.name}`} height={50} width={50} />
                             </div>
                         </label>
-                        <Link href={`/user/${meme.author.name}`}>
+                        <Link href={`/u/${meme.author.name}`}>
                             <a className='relative before:absolute before:bg-sky-600 before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 before:transition-transform before:ease-in-out before:duration-500 hover:cursor-pointer'>
                                 <span className='relative font-thin text-4xl'>{meme.author.name}</span>
                             </a>

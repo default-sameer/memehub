@@ -36,7 +36,7 @@ const Explore: React.FC<Props> = (props) => {
             <div key={meme.id} className='border border-highlight border-x-8'>
               <a className="block">
                 <div className='relative overflow-hidden'>
-                  <Link href={`/user/meme/${meme.id}`}>
+                  <Link href={`/u/meme/${meme.id}`}>
                   <Image
                     className={`object-contain w-full h-96 hover:cursor-pointer ${meme.nsfw ? 'blur-lg' : ''} hover:blur-none`}
                     src={`${cloudinary}${meme.imageUrl}.png`}
@@ -53,7 +53,7 @@ const Explore: React.FC<Props> = (props) => {
                 <div className='flex justify-between p-2'>
                   <div>
                     <h5 className="text-xl font-bold text-center mt-1 text-head">by: 
-                    <Link href={`/user/${meme.author.name}`}>
+                    <Link href={`/u/${meme.author.name}`}>
                       <a className='relative before:absolute before:bg-sky-600 before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.35] hover:before:scale-y-100 before:transition-transform before:ease-in-out before:duration-500'>
                         <span className='relative font-thin'>{meme.author.name}</span>
                       </a>

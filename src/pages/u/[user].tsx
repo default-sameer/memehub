@@ -9,6 +9,7 @@ import { cloudinary } from '../../utils/config';
 import {FiSettings} from 'react-icons/fi';
 import { shortenText } from '../../utils/helpers';
 import { BASE_URL } from '../../utils/config';
+import Link from 'next/link';
 
 const Profile = ({user, session}) => {
 
@@ -121,14 +122,20 @@ const Profile = ({user, session}) => {
           <>
           <h1 className='text-center'>Memes by {username}</h1>
           {memes.map((meme) => { return (
-            <div className='p-1'>
-            <Image
-                  className={`object-contain w-full h-96 ${meme.nsfw ? 'blur-lg' : ''} hover:blur-none`}
-                  src={`${cloudinary}${meme.imageUrl}.png`}
-                  alt="meme"
-                  height={500}
-                  width={500}
-                />
+            <div className='p-1 relative'>
+            <Link href={`/u/meme/${meme.id}`}>  
+              <Image
+                    className={`object-contain w-full h-96 ${meme.nsfw ? 'blur-lg' : ''} hover:blur-none hover:cursor-pointer`}
+                    src={`${cloudinary}${meme.imageUrl}.png`}
+                    alt="meme"
+                    height={500}
+                    width={500}
+                  />
+            </Link>
+            {meme.nsfw ? 
+                    <p className='absolute w-full py-2.5 bottom-10 inset-x-0 text-center text-2xl'>NSFW</p> 
+                    : ''
+                  }
             </div>
             )})}
           </>
