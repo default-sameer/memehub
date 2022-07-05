@@ -90,7 +90,7 @@ const Header = () => {
                     </a>
                     </Link>
                     {session && 
-                    <Link href={`/user/upload`}>
+                    <Link href={`/u/upload`}>
                     <a
                     className="h-16 leading-[4rem] border-b-4 border-transparent hover:border-[#ffa31a] font-extrabold flex justify-between "
                     >
@@ -148,14 +148,14 @@ const Header = () => {
                                 </label>
                                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content  text-head rounded-box w-52 bg-highlight">
                                     <li>
-                                    <Link href={`/user/${session.user.name}`}>
+                                    <Link href={`/u/${session.user.name}`}>
                                         <a className="justify-between">
                                             Profile
                                         </a>
                                     </Link>
                                     </li>
                                     <li>
-                                        <Link href={`/user/upload`}>
+                                        <Link href={`/u/upload`}>
                                         <a className="justify-between">
                                             Upload
                                         </a>
