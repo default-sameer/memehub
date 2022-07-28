@@ -21,7 +21,7 @@ const Likes = ({likes, setLikes, id}) => {
             setLiked(true)
             setLikes(updatedLikes)
             try{
-                await toast('Liked', {icon: '🧡',});
+                toast('Liked', { icon: '🧡', });
                 const body = {id, updatedLikes}
                 // await axios.post(`${BASE_URL}/api/meme/like`, {
                 //     headers: { 'Content-Type': 'application/json' },
