@@ -5,7 +5,9 @@ import { BASE_URL } from '../utils/config'
 import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 
-const Likes = ({likes, setLikes, id}) => {
+const Likes = ({likes, setLikes, id, user, meme}) => {
+    // console.log(meme.id, id, user.name);
+    
     const [liked, setLiked] = React.useState(false)
 
     const {data: session} = useSession()
@@ -21,7 +23,7 @@ const Likes = ({likes, setLikes, id}) => {
             setLiked(true)
             setLikes(updatedLikes)
             try{
-                toast('Liked', { icon: '🧡', });
+                toast('Liked', {icon: '🧡'});
                 const body = {id, updatedLikes}
                 // await axios.post(`${BASE_URL}/api/meme/like`, {
                 //     headers: { 'Content-Type': 'application/json' },
@@ -41,9 +43,48 @@ const Likes = ({likes, setLikes, id}) => {
             setLiked(false)
             setLikes(updatedLikes)
             try{
-                await toast('UnLiked', {icon: '💔',});
+                toast('UnLiked', {icon: '💔'});
                 const body = {id, updatedLikes}
                 await fetch(`${BASE_URL}/api/meme/like`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+                })
+            }catch(err){
+                console.error(err)
+            }
+        }
+    }
+
+    async function handleLikeandUnlike(){
+        if(!session){
+            toast.error('Please login to like Memes')
+            return
+        }
+        if(liked){
+            const updatedLikes = likes - 1
+            setLiked(false)
+            setLikes(updatedLikes)
+            try{
+                toast('UnLiked', {icon: '💔',});
+                const body = {id, updatedLikes, user}
+                await fetch(`${BASE_URL}/api/meme/likeandunlike`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+                })
+            }catch(err){
+                console.error(err)
+            }
+        }
+        if(!liked){
+            const updatedLikes = likes + 1
+            setLiked(true)
+            setLikes(updatedLikes)
+            try{
+                toast('Liked', {icon: '🧡',});
+                const body = {id, updatedLikes, user}
+                await fetch(`${BASE_URL}/api/meme/likeandunlike`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
