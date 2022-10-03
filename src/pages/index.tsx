@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const router = useRouter()
 
   const upload = () => {
-      router.push('/user/upload')
+      router.push('/u/upload')
   }
 
   return (
