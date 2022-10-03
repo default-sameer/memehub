@@ -60,7 +60,7 @@ const Explore: React.FC<Props> = (props) => {
                     </Link>
                     </h5>
                   </div>
-                  <LikeSection id={meme.id} likes={meme.likes} />
+                  <LikeSection id={meme.id} likes={meme.likes} user={meme.author} meme={meme} />
                 </div>
               </a>
             </div>
