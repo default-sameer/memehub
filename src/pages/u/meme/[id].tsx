@@ -7,8 +7,13 @@ import LikeSection from '../../../components/LikeSection'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { MemeResponse } from '../../../utils/meme'
+import { useSession } from 'next-auth/react'
+
 
 const Meme = ({meme}: {meme:MemeResponse}) => {
+
+    const {data: session} = useSession()
+    
   return (
     <>
         <NextSeo title={`Memehub`} description={`One Stop For All of Your Meme Needs`} openGraph={{
@@ -46,7 +51,7 @@ const Meme = ({meme}: {meme:MemeResponse}) => {
                     width={500}
                   />
                 <div className='pt-3'>
-                    <LikeSection id={meme.id} likes={meme.likes} />
+                    <LikeSection likes={meme.likes}  id={meme.id} user={session.user} meme={meme}  />
                 </div>
         </div>
     </>
